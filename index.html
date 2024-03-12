@@ -7,9 +7,10 @@
   </head>
   <body>
     <script>
-        const choices = ['rock', 'paper', 'scissors']
       function getComputerChoice() {
-        
+        const choices = ["rock", "paper", "scissors"];
+        const Index = parseInt(Math.random() * choices.length);
+        return choices[Index];
       }
     </script>
   </body>
