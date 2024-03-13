@@ -1,1 +1,2 @@
 # rock-paper-scissors
+From completing this project, I have demonstrated understanding of variables, data types, conditionals and loops among other things in JavaScript. I have also exhibited problem solving skills and understanding of error messages and debugging tools in the chrome browser. 
