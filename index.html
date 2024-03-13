@@ -20,7 +20,7 @@
           playerSelection === "scissors"
         ) {
           if (playerSelection === computerSelection) {
-            return `Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`;
+            return [`Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`];
           } else if (
             (playerSelection === "rock" && computerSelection === "paper") ||
             (playerSelection === "paper" && computerSelection === "scissors") ||
@@ -37,7 +37,7 @@
             ];
           }
         } else {
-          return "Invalid entry. Please try again.";
+          return ["Invalid entry. Please try again."];
         }
       }
 
