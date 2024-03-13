@@ -20,7 +20,9 @@
           playerSelection === "scissors"
         ) {
           if (playerSelection === computerSelection) {
-            return [`Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`];
+            return [
+              `Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`,
+            ];
           } else if (
             (playerSelection === "rock" && computerSelection === "paper") ||
             (playerSelection === "paper" && computerSelection === "scissors") ||
@@ -84,5 +86,7 @@
 
       playGame();
     </script>
+    <h1>Rock, Paper, Scissors</h1>
+    <h2>Best of 5 rounds</h2>
   </body>
 </html>
