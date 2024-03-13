@@ -7,12 +7,22 @@
   </head>
   <body>
     <script>
+      /**
+       * Random selection of rock, paper, or scissors.
+       * @returns {string} rock, paper, or scissors.
+       */
       function getComputerChoice() {
         const choices = ["rock", "paper", "scissors"];
         const Index = parseInt(Math.random() * choices.length);
         return choices[Index];
       }
 
+      /**
+       * Determines the winner of each round.
+       * @param {string} the players choice.
+       * @param {string} the computers choice.
+       * @returns {object} an array of who won the round. 1 if player won and 0 if player lost.
+       */
       function playRound(playerSelection, computerSelection) {
         if (
           playerSelection === "rock" ||
@@ -43,8 +53,12 @@
         }
       }
 
+      // Plays five rounds of rock, paper, scissors and determines the overall winner.
+
       function playGame() {
-        alert('Welcome to Rock, Paper, Scissors!\nYou will play best of 5 rounds.')
+        alert(
+          "Welcome to Rock, Paper, Scissors!\nYou will play best of 5 rounds."
+        );
         let again = "y";
         let playerWon = 0;
         let computerWon = 0;
