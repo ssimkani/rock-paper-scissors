@@ -13,13 +13,33 @@
         return choices[Index];
       }
 
-      function playerSelection(playerChoice, computerChoice) {
-        if (playerChoice === computerChoice) {
-            return 'Draw'
-        } else if (playerChoice === 'rock' && computerChoice === 'paper') {
-            return 
-        }else if (playerChoice === 'rock' && computerChoice === 'paper')
-        
+      function playRound(playerSelection, computerSelection) {
+        if (
+          playerSelection === "rock" ||
+          playerSelection === "paper" ||
+          playerSelection === "scissors"
+        ) {
+          if (playerSelection === computerSelection) {
+            return `Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`;
+          } else if (
+            (playerSelection === "rock" && computerSelection === "paper") ||
+            (playerSelection === "paper" && computerSelection === "scissors") ||
+            (playerSelection === "scissors" && computerSelection === "rock")
+          ) {
+            return `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou lost this round. ${computerSelection} beats ${playerSelection}.`;
+          } else {
+            return `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou won this round! ${playerSelection} beats ${computerSelection}.`;
+          }
+        } else {
+          return "Invalid entry. Please try again.";
+        }
+      }
+
+
+      function playGame() {
+        let again = "y";
+        let playerWon = 0
+        let computerWon = 0;
       }
     </script>
   </body>
