@@ -1,3 +1,7 @@
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
 /**
  * Random selection of rock, paper, or scissors.
  * @returns {string} rock, paper, or scissors.
