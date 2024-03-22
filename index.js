@@ -1,3 +1,5 @@
+const result = document.querySelector("#outcome");
+const score = document.querySelector("#score");
 const div = document.querySelector("#buttons");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
@@ -43,20 +45,20 @@ function playRound(playerSelection, computerSelection) {
 
 rock.addEventListener("click", () => {
   let outcome = playRound("rock", getComputerChoice());
-  div.textContent = "";
-  div.textContent = outcome[0];
+  result.textContent = "";
+  result.textContent = outcome[0];
 });
 
 paper.addEventListener("click", () => {
   let outcome = playRound("paper", getComputerChoice());
-  div.textContent = "";
-  div.textContent = outcome[0];
+  result.textContent = "";
+  result.textContent = outcome[0];
 });
 
 scissors.addEventListener("click", () => {
   let outcome = playRound("scissors", getComputerChoice());
-  div.textContent = "";
-  div.textContent = outcome[0];
+  result.textContent = "";
+  result.textContent = outcome[0];
 });
 
 // Plays five rounds of rock, paper, scissors and determines the overall winner.
