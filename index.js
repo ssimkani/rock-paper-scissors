@@ -47,9 +47,9 @@ function playRound(playerSelection, computerSelection) {
 function updateScore(won, lost) {
   if (won + lost === 5) {
     if (won > lost) {
-      score.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou won!`;
+      final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou won!`;
     } else {
-      score.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
+      final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
     }
   } else {
     score.textContent = `Score:\nPlayer: ${won}\nComputer: ${lost}`;
