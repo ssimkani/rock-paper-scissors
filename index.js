@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
 let playerWon = 0;
 let computerWon = 0;
 
-while (again.toLowerCase() === "y") {
+while (playerWon + computerWon < 5) {
   rock.addEventListener("click", () => {
     let outcome = playRound("rock", getComputerChoice());
     result.textContent = "";
@@ -62,14 +62,31 @@ while (again.toLowerCase() === "y") {
     let outcome = playRound("paper", getComputerChoice());
     result.textContent = "";
     result.textContent = outcome[0];
+    if (outcome[1] === 0) {
+      computerWon += 1;
+    } else if (outcome[1] === 1) {
+      playerWon += 1;
+    }
   });
 
   scissors.addEventListener("click", () => {
     let outcome = playRound("scissors", getComputerChoice());
     result.textContent = "";
     result.textContent = outcome[0];
+    if (outcome[1] === 0) {
+      computerWon += 1;
+    } else if (outcome[1] === 1) {
+      playerWon += 1;
+    }
   });
 }
+
+if (playerWon > computerWon) {
+  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
+} else {
+  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
+}
+
 // Plays five rounds of rock, paper, scissors and determines the overall winner.
 /**
  * function playGame() {
