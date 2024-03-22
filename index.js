@@ -1,11 +1,8 @@
+const div = document.querySelector("#buttons");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
-rock.addEventListener("click", () => {
-  let outcome = playRound("rock", getComputerChoice());
-  console.log(outcome[0]);
-});
 /**
  * Random selection of rock, paper, or scissors.
  * @returns {string} rock, paper, or scissors.
@@ -44,9 +41,27 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Plays five rounds of rock, paper, scissors and determines the overall winner.
+rock.addEventListener("click", () => {
+  let outcome = playRound("rock", getComputerChoice());
+  div.textContent = "";
+  div.textContent = outcome[0];
+});
 
-function playGame() {
+paper.addEventListener("click", () => {
+  let outcome = playRound("paper", getComputerChoice());
+  div.textContent = "";
+  div.textContent = outcome[0];
+});
+
+scissors.addEventListener("click", () => {
+  let outcome = playRound("scissors", getComputerChoice());
+  div.textContent = "";
+  div.textContent = outcome[0];
+});
+
+// Plays five rounds of rock, paper, scissors and determines the overall winner.
+/**
+ * function playGame() {
   alert("Welcome to Rock, Paper, Scissors!\nYou will play best of 5 rounds.");
   let again = "y";
   let playerWon = 0;
@@ -89,3 +104,4 @@ function playGame() {
 }
 
 playGame();
+ */
