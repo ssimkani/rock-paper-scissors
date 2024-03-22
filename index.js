@@ -1,3 +1,4 @@
+const final = document.querySelector("#final");
 const result = document.querySelector("#outcome");
 const score = document.querySelector("#score");
 const div = document.querySelector("#buttons");
@@ -67,14 +68,10 @@ choices.forEach((element) => {
     } else if (outcome[1] === 1) {
       playerWon += 1;
     }
+    updateScore(playerWon, computerWon);
   });
 });
 
-if (playerWon > computerWon) {
-  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
-} else {
-  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
-}
 /**if (playerWon > computerWon) {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
 } else {
