@@ -43,6 +43,18 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function updateScore(won, lost) {
+  if (won + lost === 5) {
+    if (won > lost) {
+      score.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou won!`;
+    } else {
+      score.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
+    }
+  } else {
+    score.textContent = `Score:\nPlayer: ${won}\nComputer: ${lost}`;
+  }
+}
+
 let playerWon = 0;
 let computerWon = 0;
 
@@ -58,9 +70,9 @@ choices.forEach((element) => {
   });
 });
 
-if (playerWon === 5) {
-  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`; 
-} else if (computerWon === 5) {
+if (playerWon > computerWon) {
+  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
+} else {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
 }
 /**if (playerWon > computerWon) {
