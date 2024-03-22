@@ -5,12 +5,12 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+const choices = ["rock", "paper", "scissors"];
 /**
  * Random selection of rock, paper, or scissors.
  * @returns {string} rock, paper, or scissors.
  */
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
   const Index = parseInt(Math.random() * choices.length);
   return choices[Index];
 }
@@ -46,10 +46,9 @@ function playRound(playerSelection, computerSelection) {
 let playerWon = 0;
 let computerWon = 0;
 
-while (playerWon + computerWon < 5) {
-  rock.addEventListener("click", () => {
-    let outcome = playRound("rock", getComputerChoice());
-    result.textContent = "";
+choices.forEach((element) => {
+  document.getElementById(element).addEventListener("click", () => {
+    let outcome = playRound(element, getComputerChoice());
     result.textContent = outcome[0];
     if (outcome[1] === 0) {
       computerWon += 1;
@@ -57,31 +56,14 @@ while (playerWon + computerWon < 5) {
       playerWon += 1;
     }
   });
+});
 
-  paper.addEventListener("click", () => {
-    let outcome = playRound("paper", getComputerChoice());
-    result.textContent = "";
-    result.textContent = outcome[0];
-    if (outcome[1] === 0) {
-      computerWon += 1;
-    } else if (outcome[1] === 1) {
-      playerWon += 1;
-    }
-  });
-
-  scissors.addEventListener("click", () => {
-    let outcome = playRound("scissors", getComputerChoice());
-    result.textContent = "";
-    result.textContent = outcome[0];
-    if (outcome[1] === 0) {
-      computerWon += 1;
-    } else if (outcome[1] === 1) {
-      playerWon += 1;
-    }
-  });
+if (playerWon === 5) {
+  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`; 
+} else if (computerWon === 5) {
+  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
 }
-
-if (playerWon > computerWon) {
+/**if (playerWon > computerWon) {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
 } else {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
