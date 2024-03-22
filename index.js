@@ -2,6 +2,10 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+rock.addEventListener("click", () => {
+  let outcome = playRound("rock", getComputerChoice());
+  console.log(outcome[0]);
+});
 /**
  * Random selection of rock, paper, or scissors.
  * @returns {string} rock, paper, or scissors.
@@ -19,32 +23,24 @@ function getComputerChoice() {
  * @returns {object} an array of who won the round. 1 if player won and 0 if player lost.
  */
 function playRound(playerSelection, computerSelection) {
-  if (
-    playerSelection === "rock" ||
-    playerSelection === "paper" ||
-    playerSelection === "scissors"
+  if (playerSelection === computerSelection) {
+    return [
+      `Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`,
+    ];
+  } else if (
+    (playerSelection === "rock" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "rock")
   ) {
-    if (playerSelection === computerSelection) {
-      return [
-        `Player: ${playerSelection}\nComputer: ${computerSelection}\nThis round was a draw.`,
-      ];
-    } else if (
-      (playerSelection === "rock" && computerSelection === "paper") ||
-      (playerSelection === "paper" && computerSelection === "scissors") ||
-      (playerSelection === "scissors" && computerSelection === "rock")
-    ) {
-      return [
-        `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou lost this round. ${computerSelection} beats ${playerSelection}.`,
-        0,
-      ];
-    } else {
-      return [
-        `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou won this round! ${playerSelection} beats ${computerSelection}.`,
-        1,
-      ];
-    }
+    return [
+      `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou lost this round. ${computerSelection} beats ${playerSelection}.`,
+      0,
+    ];
   } else {
-    return ["Invalid entry. Please try again."];
+    return [
+      `Player: ${playerSelection}\nComputer: ${computerSelection}\nYou won this round! ${playerSelection} beats ${computerSelection}.`,
+      1,
+    ];
   }
 }
 
@@ -74,11 +70,11 @@ function playGame() {
     }
     if (playerWon > computerWon) {
       alert(
-        `You won ${playerWon} rounds.\nComputer won ${computerWon} rounds.\nYou won!`
+        `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`
       );
     } else {
       alert(
-        `You won ${playerWon} rounds.\nComputer won ${computerWon} rounds.\nYou lost.`
+        `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`
       );
     }
     again = prompt("Would you like to play again? (y/n)");
