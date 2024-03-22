@@ -1,3 +1,5 @@
+const resetDiv = document.querySelector("#reset-text");
+const reset = document.querySelector("#reset-button");
 const final = document.querySelector("#final");
 const result = document.querySelector("#outcome");
 const score = document.querySelector("#score");
@@ -48,8 +50,10 @@ function updateScore(won, lost) {
   if (won + lost === 5) {
     if (won > lost) {
       final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou won!`;
+      resetDiv.textContent = "To play again, click the reset button";
     } else {
       final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
+      resetDiv.textContent = "To play again, click the reset button";
     }
   } else {
     score.textContent = `Score:\nPlayer: ${won}\nComputer: ${lost}`;
