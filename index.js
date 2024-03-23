@@ -68,6 +68,9 @@ function updateScore(won, lost) {
       final.textContent = "";
       result.textContent = "";
       resetButton.remove();
+      rock.disabled = false;
+      paper.disabled = false;
+      scissors.disabled = false;
     });
   }
 }
@@ -87,8 +90,6 @@ choices.forEach((element) => {
     updateScore(playerWon, computerWon);
   });
 });
-
-
 
 /**if (playerWon > computerWon) {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
