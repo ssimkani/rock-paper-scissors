@@ -45,13 +45,21 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function updateScore(won, lost) {
+/**
+* updates the score after the user clicks rock, paper, or scissors. The live score is
+displayed and after 5 rounds, the final outcome is determined. A reset button appears after the
+final outcome which if clicked, the score and all of the text is reset. 
+* @param {int} won 
+* @param {int} lost
+*/
+
+function updateScore(roundsWon, roundsLost) {
   score.textContent = `Score:\nPlayer: ${won}\nComputer: ${lost}`;
-  if (won + lost === 5) {
-    if (won > lost) {
-      final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou won!`;
+  if (roundsWon + roundsLost === 5) {
+    if (roundsWon > roundsLost) {
+      final.textContent = `You won ${roundsWon} round(s).\nComputer won ${roundsLost} round(s).\nYou won!`;
     } else {
-      final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
+      final.textContent = `You won ${roundsWon} round(s).\nComputer won ${roundsLost} round(s).\nYou lost.`;
     }
     const resetButton = document.createElement("button");
     resetButton.textContent = "Reset";
@@ -90,56 +98,3 @@ choices.forEach((element) => {
     updateScore(playerWon, computerWon);
   });
 });
-
-/**if (playerWon > computerWon) {
-  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
-} else {
-  score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`;
-}
-
-// Plays five rounds of rock, paper, scissors and determines the overall winner.
-/**
- * function playGame() {
-  alert("Welcome to Rock, Paper, Scissors!\nYou will play best of 5 rounds.");
-  let again = "y";
-  let playerWon = 0;
-  let computerWon = 0;
-  while (again.toLowerCase() === "y") {
-    while (playerWon + computerWon < 5) {
-      playerChoice = prompt("Enter rock, paper, or scissors.");
-      computerChoice = getComputerChoice();
-      let outcome = playRound(
-        playerChoice.toLowerCase().trim(),
-        computerChoice
-      );
-      alert(outcome[0]);
-      if (outcome[1] === 0) {
-        computerWon += 1;
-      } else if (outcome[1] === 1) {
-        playerWon += 1;
-      } else {
-        continue;
-      }
-    }
-    if (playerWon > computerWon) {
-      alert(
-        `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`
-      );
-    } else {
-      alert(
-        `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou lost.`
-      );
-    }
-    again = prompt("Would you like to play again? (y/n)");
-    if (again === "y") {
-      playerWon = 0;
-      computerWon = 0;
-    } else {
-      break;
-    }
-  }
-  alert("Bye!");
-}
-
-playGame();
- */
