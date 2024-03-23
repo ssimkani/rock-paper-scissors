@@ -1,4 +1,4 @@
-const resetDiv = document.querySelector("#reset-text");
+const resetDiv = document.querySelector("#reset");
 const final = document.querySelector("#final");
 const result = document.querySelector("#outcome");
 const score = document.querySelector("#score");
@@ -53,10 +53,22 @@ function updateScore(won, lost) {
     } else {
       final.textContent = `You won ${won} round(s).\nComputer won ${lost} round(s).\nYou lost.`;
     }
-    resetDiv.textContent = "To play again, click the reset button";
     const resetButton = document.createElement("button");
     resetButton.textContent = "Reset";
     resetDiv.appendChild(resetButton);
+
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
+    resetButton.addEventListener("click", () => {
+      playerWon = 0;
+      computerWon = 0;
+      score.textContent = "";
+      final.textContent = "";
+      result.textContent = "";
+      resetButton.remove();
+    });
   }
 }
 
@@ -75,6 +87,8 @@ choices.forEach((element) => {
     updateScore(playerWon, computerWon);
   });
 });
+
+
 
 /**if (playerWon > computerWon) {
   score.textContent = `You won ${playerWon} round(s).\nComputer won ${computerWon} round(s).\nYou won!`;
