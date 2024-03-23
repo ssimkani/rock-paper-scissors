@@ -54,7 +54,7 @@ final outcome which if clicked, the score and all of the text is reset.
 */
 
 function updateScore(roundsWon, roundsLost) {
-  score.textContent = `Score:\nPlayer: ${won}\nComputer: ${lost}`;
+  score.textContent = `Score:\nPlayer: ${roundsWon}\nComputer: ${roundsLost}`;
   if (roundsWon + roundsLost === 5) {
     if (roundsWon > roundsLost) {
       final.textContent = `You won ${roundsWon} round(s).\nComputer won ${roundsLost} round(s).\nYou won!`;
